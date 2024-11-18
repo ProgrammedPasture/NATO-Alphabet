@@ -52,12 +52,15 @@ while True:
         print("Goodbye!")
         break
 
-    # Get the phonetic representation and display it
-    try:
-        phonetic_list = get_phonetic_representation(word)
-        print("Phonetic Code Words:", phonetic_list)
-    except KeyError:
+    # Validate input
+    if not word.isalpha():
         print("Please enter a word containing only alphabetic characters.")
+    else:
+        try:
+            phonetic_list = get_phonetic_representation(word)
+            print("Phonetic Code Words:", phonetic_list)
+        except KeyError:
+            print("Please enter alphabetic characters only.")
 
     # Ask if they want to enter another word
     print()  # Add a blank line for better readability
